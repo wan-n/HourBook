@@ -1,0 +1,19 @@
+:root{
+    --blue01: #3E4E66;
+    --blue02: #5D7599;
+    --yellow: #F7F0C6;
+    --pink: #E58B8B;
+    --black: #333;
+
+    --pc-width: 1216px;
+    --tab-width: 904px;
+    --mob-width: 600px;
+    --gap: 20px;
+}
+
+
+body{
+    /* font-family: 'Gowun Dodum', 'Noto Sans KR', sans-serif; */
+    /* font-family: 'Jua', 'Noto Sans KR', sans-serif; */
+    font-family: 'Noto Sans KR', sans-serif;
+}
