@@ -5,7 +5,7 @@
     --pink: #E58B8B;
     --black: #333;
 
-    --pc-width: 1216px;
+    --pc-width: 1280px;
     --tab-width: 904px;
     --mob-width: 600px;
     --gap: 20px;
@@ -16,4 +16,114 @@ body{
     /* font-family: 'Gowun Dodum', 'Noto Sans KR', sans-serif; */
     /* font-family: 'Jua', 'Noto Sans KR', sans-serif; */
     font-family: 'Noto Sans KR', sans-serif;
+    overflow-x: hidden;
+}
+
+#cover{
+    background-color: var(--blue01);
+    width: 100vw;
+}
+
+.cover-inner-wrapper{
+    display: flex;
+    flex-direction: column;
+    max-width: var(--pc-width);
+    height: 100vh;
+    min-height: 650px;
+    padding: 0 32px;
+    margin: 0 auto;
+}
+
+.link-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 50px;
+    max-width: var(--pc-width);
+}
+
+.sns-link, .download-link{
+    display: flex;
+    column-gap: var(--gap);
+    align-items: center;
+}
+
+.sns-link img{
+    width: 40px;
+    height: 40px;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, .2));
+}
+
+.sns-link img:nth-child(1){
+    width: 34px;
+    height: 34px;
+}
+
+.download-link img{
+    height: 40px;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, .2));
+}
+
+.sns-link img:hover, .download-link img:hover{
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, .3));
+}
+
+.title-box{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.small-title{
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 1px;
+    line-height: 1.5;
+}
+
+.small-title>b{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+h1{
+    font-family: 'Jua', 'Noto Sans KR', sans-serif;
+    font-size: 100px;
+    color: var(--yellow);
+    text-align: center;
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, .3));
+    margin-top: 30px;
+}
+
+.scroll-arrow{
+    width: 47px;
+    height: 150px;
+    margin: 0 auto 50px auto;
+    animation: float alternate infinite ease-in-out 1s ;
+}
+
+.scroll-arrow img{
+    width: 40px;
+    height: 120px;
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, .3));
+}
+
+
+@keyframes float {
+    from{
+        transform: translateY(0);
+    }
+    to{
+        transform: translateY(-10px);
+    }
+}
+
+
+
+
+.hide{
+    display: none;
 }
