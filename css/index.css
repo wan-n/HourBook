@@ -6,9 +6,10 @@
     --black: #333;
     --shadow: rgba(0, 0, 0, .3);
 
-    --pc-width: 1280px;
-    --tab-width: 904px;
-    --mob-width: 600px;
+    --full-width: 1280px;
+    --pc-width: 1024px;
+    --tab-width: 768px;
+    --mob-width: 320px;
     --gap: 20px;
 }
 
@@ -25,17 +26,14 @@ body{
     width: 100%;
 }
 
-.inner-wrapper{
-    max-width: var(--pc-width);
-    margin: 0 auto;
-    padding: 0 32px;
-}
-
-.inner-wrapper.cover{
-    display: flex;
+.cover-inner-wrapper{
     flex-direction: column;
     height: 100vh;
     min-height: 650px;
+    display: flex;
+    max-width: var(--full-width);
+    margin: 0 auto;
+    padding: 0 32px;
 }
 
 .link-top{
@@ -43,7 +41,7 @@ body{
     justify-content: space-between;
     align-items: center;
     padding-top: 50px;
-    max-width: var(--pc-width);
+    max-width: var(--full-width);
 }
 
 .sns-link, .download-link{
@@ -128,10 +126,12 @@ h1{
 
 
 
+
+
 #intro{
     background-color: var(--blue01);
     width: 100%;
-    height: 120vh;
+    height: 100vh;
     min-height: 800px;
     display: flex;
     align-items: center;
@@ -140,44 +140,44 @@ h1{
 .yellow-box{
     background-color: var(--yellow);
     width: 100%;
-    height: 750px;
+    height: 700px;
     display: flex;
     align-items: center;
     box-shadow: 0 0 20px var(--shadow);
 }
 
-.inner-wrapper.intro{
-    display: flex;
-    align-items: center;
-    column-gap: 120px;
-}
 
-.inner-wrapper.intro .img-area{
-    width: 598px;
+.inner-wrapper{
+    display: flex;
+    max-width: var(--full-width);
+    margin: 0 auto;
+    padding: 0 32px;
+    align-items: center;
+    column-gap: 186px;
 }
 
 .screen-carousel-container{
     position: relative;
     display: flex;
     align-items: center;
-    height: 657px;
+    height: 600px;
 }
 
 .iphone-mockup-img{
-    position: absolute;
     right: 0;
     z-index: 10;
 }
 
 .iphone-mockup-img img{
-    width: 324px;
-    height: 657px;
+    width: 296px;
+    height: 600px;
     filter: drop-shadow(2px 2px 4px var(--shadow));
 }
 
 .screen-carousel-frame{
-    width: 289px;
-    transform: translateX(291px);
+    position: absolute;
+    width: 264px;
+    transform: translateX(16px);
     overflow: hidden;
 }
 
@@ -186,12 +186,12 @@ h1{
 }
 
 .screen-carousel-contents img{
-    width: 289px;
-    height: 626px;
+    width: 264px;
+    height: 570px;
 }
 
-.text-area{
-    flex-grow: 1;
+.text-area, .img-area{
+    max-width: 515px;
 }
 
 .title{
@@ -214,38 +214,30 @@ h1{
 
 #search{
     background-color: #fff;
-    height: 120vh;
+    height: 100vh;
     min-height: 800px;
     display: flex;
     align-items: center;
 }
 
-.inner-wrapper.search{
-    display: flex;
-    align-items: center;
-    column-gap: 120px;
-}
-
 .inner-wrapper.search .text-area{
     text-align: right;
-    flex-grow: 1;
 }
 
 .inner-wrapper.search .img-area{
-    width: 495px;
     position: relative;
 }
 
 .search-screen img{
-    width: 380px;
-    height: 700px;
+    width: 326px;
+    height: 600px;
     filter: drop-shadow(0 4px 8px var(--shadow));
 }
 
 .tag-carousel-container{
     position: absolute;
     top: 50%;
-    left: 28%;
+    left: 34%;
     transform: translateY(-50%);
 }
 
@@ -271,18 +263,8 @@ h1{
     background-color: #F9F9F9;
     display: flex;
     align-items: center;
-    height: 120vh;
+    height: 100vh;
     min-height: 800px;
-}
-
-.inner-wrapper.achievement{
-    display: flex;
-    align-items: center;
-    column-gap: 120px;
-}
-
-.inner-wrapper.achievement .img-area{
-    width: 495px;
 }
 
 .bar-graph{
@@ -290,7 +272,7 @@ h1{
     display: flex;
     align-items: flex-end;
     column-gap: var(--gap);
-    border-bottom: 3px solid var(--blue02);
+    border-bottom: 3px solid var(--blue01);
     box-sizing: border-box;
 }
 
@@ -302,31 +284,27 @@ h1{
 
 .bar.one{
     height: 100px;
-    background: linear-gradient(to top, var(--blue02) 60%, var(--pink) 60%);
+    background: linear-gradient(to top, var(--blue01) 60%, var(--pink) 60%);
 }
 
 .bar.two{
     height: 150px;
-    background-color: var(--blue02);
+    background-color: var(--blue01);
 }
 
 .bar.three{
     height: 300px;
-    background: linear-gradient(to top, var(--blue02) 50%, var(--pink) 50%);
+    background: linear-gradient(to top, var(--blue01) 50%, var(--pink) 50%);
 }
 
 .bar.four{
     height: 250px;
-    background: linear-gradient(to top, var(--blue02) 60%, var(--pink) 60%);
+    background: linear-gradient(to top, var(--blue01) 60%, var(--pink) 60%);
 }
 
 .bar.five{
     height: 400px;
-    background: linear-gradient(to top, var(--blue02) 70%, var(--pink) 70%);
-}
-
-.inner-wrapper.achievement .text-area{
-    flex-grow: 1;
+    background: linear-gradient(to top, var(--blue01) 70%, var(--pink) 70%);
 }
 
 
@@ -336,44 +314,36 @@ h1{
     background-color: #fff;
     display: flex;
     align-items: center;
-    height: 120vh;
+    height: 100vh;
     min-height: 800px;
 }
 
-.inner-wrapper.character{
-    display: flex;
-    align-items: center;
-    column-gap: 120px;
-}
-
 .inner-wrapper.character .text-area{
-    flex-grow: 1;
     text-align: right;
 }
 
 .inner-wrapper.character .img-area{
     position: relative;
-    width: 495px;
 }
 
 
 .characters{
     position: absolute;
     display: flex;
-    column-gap: 46px;
-    top: 134px;
-    left: 40px;
+    column-gap: 40px;
+    top: 114px;
+    left: 34px;
     z-index: 10;
 }
 
 .characters img{    
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
 }
 
 .character-screen img{
-    width: 380px;
-    height: 700px;
+    width: 326px;
+    height: 600px;
     filter: drop-shadow(0 4px 8px var(--shadow));
 }
 
@@ -422,12 +392,13 @@ h1{
     justify-content: center;
     flex-direction: column;
     row-gap: 100px;
-    height: 120vh;
+    height: 100vh;
     min-height: 1000px;
+    column-gap: 0;
 }
 
 .inner-wrapper.goal .text-area{
-    flex-grow: 0;
+    max-width: 100%;
 }
 
 .inner-wrapper.goal .title{
@@ -561,10 +532,30 @@ footer{
 
 
 
+
 .hide{
     display: none;
 }
 
 .opacity-zero{
     opacity: 0;
+}
+
+
+
+
+
+@media screen and (max-width: 1279px){
+    .inner-wrapper{
+        max-width: var(--pc-width);
+        column-gap: 100px;
+    }
+
+    .text-area, .img-area{
+        max-width: 430px;
+    }
+
+    .bar{
+        width: 70px;
+    }
 }
