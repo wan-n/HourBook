@@ -29,7 +29,7 @@ body{
 .cover-inner-wrapper{
     flex-direction: column;
     height: 100vh;
-    min-height: 650px;
+    min-height: 700px;
     display: flex;
     max-width: var(--full-width);
     margin: 0 auto;
@@ -156,6 +156,10 @@ h1{
     column-gap: 186px;
 }
 
+.inner-wrapper.intro{
+    flex-direction: row-reverse;
+}
+
 .screen-carousel-container{
     position: relative;
     display: flex;
@@ -267,6 +271,10 @@ h1{
     min-height: 800px;
 }
 
+.inner-wrapper.achievement{
+    flex-direction: row-reverse;
+}
+
 .bar-graph{
     height: 400px;
     display: flex;
@@ -330,15 +338,15 @@ h1{
 .characters{
     position: absolute;
     display: flex;
-    column-gap: 40px;
-    top: 114px;
-    left: 34px;
+    column-gap: 27px;
+    top: 104px;
+    left: 27px;
     z-index: 10;
 }
 
 .characters img{    
-    width: 60px;
-    height: 60px;
+    width: 73px;
+    height: 77px;
 }
 
 .character-screen img{
@@ -405,6 +413,10 @@ h1{
     text-align: center;
 }
 
+.highlight-area .title br{
+    display: none;
+}
+
 .inner-wrapper.goal .img-area{
     position: relative;
     display: flex;
@@ -460,21 +472,27 @@ h1{
 
 
 footer{
+    position: relative;
+    width: 100%;
     height: 600px;
     background-color: var(--blue01);
-    display: flex;
-    flex-direction: column;
 }
 
-.inner-wrapper.footer{
-    width: 804px;
+.footer-inner-wrapper{
+    max-width: 804px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-grow: 1;
+    height: 100%;
+    padding: 0 32px;
+    margin: 0 auto;
 }
 
 .text-animation-area{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 50px;
     background-color: var(--yellow);
 }
@@ -558,4 +576,100 @@ footer{
     .bar{
         width: 70px;
     }
+}
+
+@media screen and (max-width: 1023px) {
+    #intro, #search, #achievement, #character{
+        min-height: 1000px;
+    }
+
+    .yellow-box{
+        height: 900px;
+    }
+
+    .inner-wrapper, .inner-wrapper.intro, .inner-wrapper.achievement{
+        flex-direction: column;
+        row-gap: 50px;
+        column-gap: 0;
+    }
+    .text-area, .img-area{
+        max-width: 704px;
+    }
+
+    .text-area, .inner-wrapper.search .text-area, .inner-wrapper.character .text-area{
+        text-align: center;
+    }
+
+    .screen-carousel-container{
+        height: 500px;
+    }
+
+    .iphone-mockup-img img{
+        width: 246px;
+        height: 500px;
+    }
+
+    .screen-carousel-frame{
+        width: 220px;
+    }
+
+    .screen-carousel-contents img{
+        width: 220px;
+        height: 476px;
+    }
+
+    .search-screen img, .character-screen img{
+        width: 272px;
+        height: 500px;
+    }
+
+    .tag-carousel-contents{
+        font-size: 26px;
+    }
+    
+    .now-tag{
+        font-size: 36px;
+    }
+
+    .bar{
+        width: 83px;
+    }
+
+    #achievement .title br, #character .title br{
+        display: none;
+    }
+
+    .characters{
+        column-gap: 19px;
+        top: 87px;
+        left: 23px;
+    }
+
+    .characters img{    
+        width: 64px;
+        height: 64px;
+    }
+
+    .goal-screen img{
+        width: 350px;
+    }
+
+    .rewards figure, .reward-char{
+        width: 135px;
+        height: 130px;
+    }
+
+    .reward-one{
+        right: -160px;
+    }
+    
+    .reward-two{
+        top: 150px;
+        left: -160px;
+    }
+    
+    .reward-three{
+        right: -160px;
+    }
+    
 }
