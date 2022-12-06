@@ -1,3 +1,12 @@
+/* 
+    pc : 1280 ~
+    pc&tab(가로) : 1024 ~ 1279
+    tab(가로) : 768 ~ 1023
+    tab(세로)&mob(가로) : 480 ~ 767
+    mob : 320 ~ 479 
+*/
+
+
 :root{
     --blue01: #3E4E66;
     --blue02: #5D7599;
@@ -7,9 +16,6 @@
     --shadow: rgba(0, 0, 0, .3);
 
     --full-width: 1280px;
-    --pc-width: 1024px;
-    --tab-width: 768px;
-    --mob-width: 320px;
     --gap: 20px;
 }
 
@@ -101,9 +107,9 @@ h1{
 }
 
 .scroll-arrow{
-    width: 47px;
-    height: 150px;
-    margin: 0 auto 30px auto;
+    width: 40px;
+    height: 120px;
+    margin: 0 auto 50px auto;
     animation: float alternate infinite ease-in-out 1s ;
 }
 
@@ -202,7 +208,7 @@ h1{
     font-size: 60px;
     color: var(--blue01);
     font-family: 'Jua', 'Noto Sans KR', sans-serif;
-    line-height: 1.1;
+    line-height: 1.2;
     filter: drop-shadow(2px 2px 4px var(--shadow));
 }
 
@@ -399,7 +405,7 @@ h1{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    row-gap: 100px;
+    row-gap: 80px;
     height: 100vh;
     min-height: 1000px;
     column-gap: 0;
@@ -409,7 +415,7 @@ h1{
     max-width: 100%;
 }
 
-.inner-wrapper.goal .title{
+.inner-wrapper.goal .title, .highlight-area .title{
     text-align: center;
 }
 
@@ -421,6 +427,7 @@ h1{
     position: relative;
     display: flex;
     flex-direction: column;
+    align-items: center;
     row-gap: 30px;
 }
 
@@ -451,18 +458,18 @@ h1{
 }
 
 .reward-one{
-    top: -40px;
+    top: -10px;
     right: -200px;
     transform: scaleX(-1);
 }
 
 .reward-two{
-    top: 180px;
+    top: 200px;
     left: -200px;
 }
 
 .reward-three{
-    bottom: 34px;
+    bottom: 10px;
     right: -200px;
     transform: scaleX(-1);
 }
@@ -509,20 +516,22 @@ footer{
     display: flex;
     flex-direction: column;
     row-gap: 10px;
+    font-size: 20px;
 }
 
 .sns-link-btn{
     display: flex;
     column-gap: var(--gap);
+    align-items: center;
 }
 
-.sns-link-btn img{
+.sns-link-btn .sns-icon{
     width: 50px;
     height: 50px;
     filter: drop-shadow(0 0 2px rgba(0, 0, 0, .2));
 }
 
-.sns-link-btn img:nth-child(1){
+.sns-link-btn .sns-icon.insta{
     width: 44px;
     height: 44px;
 }
@@ -565,7 +574,6 @@ footer{
 
 @media screen and (max-width: 1279px){
     .inner-wrapper{
-        max-width: var(--pc-width);
         column-gap: 100px;
     }
 
@@ -592,6 +600,7 @@ footer{
         row-gap: 50px;
         column-gap: 0;
     }
+
     .text-area, .img-area{
         max-width: 704px;
     }
@@ -635,7 +644,7 @@ footer{
         width: 83px;
     }
 
-    #achievement .title br, #character .title br{
+    #intro .title br, #achievement .title br, #character .title br{
         display: none;
     }
 
@@ -660,16 +669,370 @@ footer{
     }
 
     .reward-one{
+        top: 0;
         right: -160px;
     }
     
     .reward-two{
-        top: 150px;
+        top: 190px;
         left: -160px;
     }
     
     .reward-three{
         right: -160px;
     }
+}
+
+@media screen and (max-width: 767px) {
+    .download-btn.google{
+        content: url("../img/googleplay-s.png");
+    }
+
+    .download-btn.apple{
+        content: url("../img/appstore-s.png");
+    }
+
+    .download-link img{
+        width: 48px;
+        height: 44px;
+    }
+
+    h1{
+        font-size: 80px;
+    }
+
+    .small-title{
+        font-size: 16px;
+    }
     
+    .small-title>b{
+        font-size: 20px;
+    }
+
+    .scroll-arrow, .scroll-arrow img{
+        width: 30px;
+        height: 100px;
+    }
+
+    #intro, #search, #achievement, #character, .inner-wrapper.goal{
+        min-height: 1000px;
+    }
+
+    .inner-wrapper, .inner-wrapper.intro, .inner-wrapper.achievement{
+        row-gap: 50px;
+    }
+
+    .yellow-box{
+        height: 700px;
+    }
+
+    .text-area, .img-area{
+        max-width: 416px;
+    }
+
+    .title{
+        font-size: 40px;
+    }
+
+    .text-area .small-text{
+        font-size: 16px;
+    }
+
+    .screen-carousel-container{
+        height: 400px;
+    }
+
+    .iphone-mockup-img img{
+        width: 197px;
+        height: 400px;
+    }
+    
+    .screen-carousel-frame{
+        width: 175px;
+        transform: translateX(10px);
+    }
+
+    .screen-carousel-contents img{
+        width: 175px;
+        height: 378px;
+    }
+
+    .search-screen img, .character-screen img{
+        width: 218px;
+        height: 400px;
+    }
+
+    .tag-carousel-contents{
+        font-size: 20px;
+    }
+    
+    .now-tag{
+        font-size: 30px;
+    }
+
+    .bar{
+        width: 60px;
+    }
+
+    .characters{
+        column-gap: 16px;
+        top: 69px;
+        left: 18px;
+    }
+
+    .characters img{    
+        width: 50px;
+        height: 52px;
+    }
+
+    .highlight-area .title{
+        line-height: 1.4;
+    }
+
+    .highlight-area .title br{
+        display: block;
+    }
+
+    .highlight-area{
+        row-gap: 50px;
+    }
+
+    .decoration-circle div{
+        width: 8px;
+        height: 8px;
+    }
+    
+    .decoration-circle div:nth-child(2){
+        width: 12px;
+        height: 12px;
+    }
+
+    .inner-wrapper.goal{
+        row-gap: 30px;
+    }
+
+    .goal-screen img{
+        width: 350px;
+    }
+
+    .rewards{
+        display: flex;
+        column-gap: var(--gap);
+    }
+
+    .rewards figure{
+        position: relative;
+        width: 100px;
+        height: 96px;
+    }
+    
+    .reward-char{
+        width: 100px;
+        height: 96px;
+    }
+
+    .reward-one{
+        top: auto;
+        right: auto;
+        transform: scaleX(1);
+    }
+    
+    .reward-two{
+        top: auto;
+        left: auto;
+    }
+    
+    .reward-three{
+        bottom: auto;
+        right: auto;
+        transform: scaleX(1);
+    }
+
+    footer{
+        height: 800px;
+    }
+
+    .footer-inner-wrapper{
+        width: 250px;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        row-gap: 40px;
+    }
+
+    .contact-info{
+        margin-top: 20px;
+    }
+
+    .download-app-btn{
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 479px){
+    .cover-inner-wrapper{
+        min-height: 600px;
+        padding: 0 16px;
+    }
+
+    .download-link img{
+        width: 40px;
+        height: 36px;
+    }
+
+    h1{
+        font-size: 50px;
+    }
+
+    .small-title{
+        font-size: 14px;
+    }
+    
+    .small-title>b{
+        font-size: 18px;
+    }
+
+    .scroll-arrow, .scroll-arrow img{
+        width: 24px;
+        height: 80px;
+    }
+
+    #intro, #search, #achievement, #character, .inner-wrapper.goal{
+        min-height: 800px;
+    }
+
+    .inner-wrapper{
+        padding: 0 16px;
+    }
+
+    .inner-wrapper, .inner-wrapper.intro, .inner-wrapper.achievement{
+        row-gap: 30px;
+    }
+
+    .yellow-box{
+        height: 600px;
+    }
+
+    .text-area, .img-area{
+        max-width: 288px;
+    }
+
+    .title{
+        font-size: 30px;
+    }
+
+    .screen-carousel-container{
+        height: 350px;
+    }
+
+    .iphone-mockup-img img{
+        width: 172px;
+        height: 350px;
+    }
+
+    .screen-carousel-frame{
+        width: 154px;
+    }
+
+    .screen-carousel-contents img{
+        width: 154px;
+        height: 332px;
+    }
+
+    .search-screen img, .character-screen img{
+        width: 190px;
+        height: 350px;
+    }
+
+    .tag-carousel-contents{
+        font-size: 18px;
+    }
+    
+    .now-tag{
+        font-size: 24px;
+    }
+
+    .bar{
+        width: 46px;
+    }
+
+    .bar-graph{
+        column-gap: 10px;
+    }
+
+    .characters{
+        column-gap: 13px;
+        top: 61px;
+        left: 16px;
+    }
+
+    .characters img{    
+        width: 44px;
+        height: 44px;
+    }
+
+    .highlight-area{
+        height: 400px;
+    }
+
+    .inner-wrapper.goal{
+        row-gap: 20px;
+    }
+
+    .goal-screen img{
+        width: 288px;
+    }
+
+    .goal-screen p{
+        font-size: 16px;
+    }
+
+    .goal-screen figure{
+        margin-top: 12px;
+    }
+
+    .rewards figure{
+        position: relative;
+        width: 80px;
+        height: 76px;
+    }
+    
+    .reward-char{
+        width: 80px;
+        height: 76px;
+    }
+
+    footer{
+        height: 600px;
+    }
+
+    .footer-inner-wrapper{
+        width: 180px;
+        padding: 0 16px;
+    }
+
+    .footer-logo img{
+        width: 150px;
+    }
+
+    .contact-info{
+        row-gap: 6px;
+        font-size: 14px;
+    }
+
+    .sns-link-btn .sns-icon{
+        width: 39px;
+        height: 39px;
+    }
+
+    .sns-link-btn .sns-icon.insta{
+        width: 36px;
+        height: 36px;
+    }
+
+    .download-app-btn img{
+        width: 154px;
+    }
+    
+
 }
