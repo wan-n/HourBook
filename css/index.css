@@ -98,12 +98,22 @@ body{
 }
 
 h1{
+    height: 0;
     font-family: 'Jua', 'Noto Sans KR', sans-serif;
     font-size: 100px;
     color: var(--yellow);
     text-align: center;
     filter: drop-shadow(0 4px 4px var(--shadow));
     margin-top: 30px;
+}
+
+.title-logo{
+    margin-top: 30px;
+}
+
+.title-logo img{
+    height: 168px;
+    filter: drop-shadow(0 4px 4px var(--shadow));
 }
 
 .scroll-arrow{
@@ -568,6 +578,9 @@ footer{
     opacity: 0;
 }
 
+.to-bottom{
+    transform: translateY(50px);
+}
 
 
 
@@ -707,6 +720,10 @@ footer{
     
     .small-title>b{
         font-size: 20px;
+    }
+    
+    .title-logo img{
+        height: 130px;
     }
 
     .scroll-arrow, .scroll-arrow img{
