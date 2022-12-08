@@ -56,5 +56,5 @@ function showTitleMotion(){
 
     setTimeout(() => {
         arrow.classList.remove('opacity-zero');
-    }, 1500);
+    }, 1800);
 }
