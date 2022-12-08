@@ -32,22 +32,29 @@ function makeScrollAnimation(){
 
 
 function showTitleMotion(){
-    const textBox = document.getElementsByClassName('title-box')[0];
-    const logo = document.getElementsByClassName('title-logo')[0];
-    const title = document.getElementsByTagName('h1')[0];
+    const textBox = document.querySelector('.title-box');
+    const logo = document.querySelector('.title-logo');
+    const title = document.querySelector('h1');
+    const arrow = document.querySelector('.scroll-arrow');
 
-    textBox.style.transition = '1s';
+    textBox.style.transition = '.8s';
     logo.style.transition = '.5s';
     title.style.transition = '.5s';
+    arrow.style.transition = '1s';
     textBox.classList.remove('opacity-zero');
     textBox.classList.remove('to-bottom');
 
     setTimeout(() => {
         logo.classList.add('opacity-zero');
-        setTimeout(() => {
-            logo.classList.add('hide');
-            title.style.height = 'auto';
-            title.classList.remove('opacity-zero');
-        }, 500);
-    }, 1000);
+    }, 800);
+
+    setTimeout(() => {
+        logo.classList.add('hide');
+        title.style.height = 'auto';
+        title.classList.remove('opacity-zero');
+    }, 1300);
+
+    setTimeout(() => {
+        arrow.classList.remove('opacity-zero');
+    }, 1500);
 }
