@@ -34,11 +34,12 @@ function makeScrollAnimation(){
 
 function makeTitleSA(){
     const textBox = document.querySelector('.title-box');
-    const logo = document.querySelector('.title-logo');
-    const title = document.querySelector('h1');
-    const arrow = document.querySelector('.scroll-arrow');
 
     if(textBox.getBoundingClientRect().top - window.innerHeight < 0){
+        const logo = document.querySelector('.title-logo');
+        const title = document.querySelector('h1');
+        const arrow = document.querySelector('.scroll-arrow');
+
         textBox.style.transition = '.8s';
         logo.style.transition = '.5s';
         title.style.transition = '.5s';
@@ -72,18 +73,25 @@ function makeIntroSA(){
     const moveLength = document.querySelector('.screen-carousel-frame').clientWidth;
     const contentsWrapper = document.querySelector('.screen-carousel-contents');
     const count = 4;
+    const msec = 800;
+    let nowIdx = 1;
 
 
-    if(container.getBoundingClientRect().top - window.innerHeight < 0){
+    if(container.getBoundingClientRect().top - window.innerHeight < 0 && nowIdx == 1){
         container.style.transition = '.8s';
 
         container.classList.remove('opacity-zero');
-        setTimeout(slideContents(contentsWrapper, moveLength, count, 800), 800);
+        // setTimeout(() => {
+        //     slideContents(contentsWrapper, moveLength, count, msec, nowIdx);
+        // }, 800);
 
-        setTimeout(() => {
-            //이미지 뒤로 펼치기
+        // window.addEventListener('resize', () => {
+        //     contentsWrapper.style.transform = `translateX(-${moveLength*nowIdx}px)`;
             
-        }, 800*count);
+        //     setTimeout(() => {
+        //         //이미지 뒤로 펼치기
+        //     }, msec*count);
+        // })
     }
 
 
@@ -91,19 +99,18 @@ function makeIntroSA(){
 
 
 
-function slideContents(wrapper, moveLength, count, sec){
+function slideContents(wrapper, moveLength, count, msec, nowIdx){
     const contentsWrapper = wrapper;
-    let nowIdx = 1;  //현재 인덱스
 
     contentsWrapper.style.transition = '.5s'
 
-    let abc = setInterval(() => {
-        contentsWrapper.style.transform = `translateX(-${moveLength*nowIdx++}px)`;
+    contentsWrapper.style.transform = `translateX(-${moveLength*nowIdx}px)`;
 
-        if(nowIdx === count){
-            clearInterval(abc);
-        }
-    }, sec);
+    if(++nowIdx < count){
+        setTimeout(() => {
+            slideContents(wrapper, moveLength, count, msec, nowIdx);
+        }, msec);
+    }
 }
 
     

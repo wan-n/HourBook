@@ -20,6 +20,33 @@
 }
 
 
+
+/* 공통 css */
+.shadow.type-01{
+    filter: drop-shadow(0 1px 2px var(--shadow));
+}
+
+.shadow.type-02{
+    filter: drop-shadow(0 4px 4px var(--shadow));
+}
+
+.shadow.type-03{
+    box-shadow: 0 0 20px var(--shadow);
+}
+
+.shadow.type-04{
+    filter: drop-shadow(2px 2px 4px var(--shadow));
+}
+
+.section-padding{
+    padding: 0 32px;
+}
+
+
+
+
+
+
 body{
     /* font-family: 'Gowun Dodum', 'Noto Sans KR', sans-serif; */
     /* font-family: 'Jua', 'Noto Sans KR', sans-serif; */
@@ -39,7 +66,6 @@ body{
     display: flex;
     max-width: var(--full-width);
     margin: 0 auto;
-    padding: 0 32px;
 }
 
 .link-top{
@@ -59,7 +85,6 @@ body{
 .sns-link img{
     width: 40px;
     height: 40px;
-    filter: drop-shadow(0 0 2px rgba(0, 0, 0, .2));
 }
 
 .sns-link img:nth-child(1){
@@ -69,7 +94,6 @@ body{
 
 .download-link img{
     height: 40px;
-    filter: drop-shadow(0 0 2px rgba(0, 0, 0, .2));
 }
 
 .sns-link img:hover, .download-link img:hover{
@@ -103,7 +127,6 @@ h1{
     font-size: 100px;
     color: var(--yellow);
     text-align: center;
-    filter: drop-shadow(0 4px 4px var(--shadow));
     margin-top: 30px;
 }
 
@@ -113,7 +136,6 @@ h1{
 
 .title-logo img{
     height: 170px;
-    filter: drop-shadow(0 4px 4px var(--shadow));
 }
 
 .scroll-arrow{
@@ -126,7 +148,6 @@ h1{
 .scroll-arrow img{
     width: 40px;
     height: 120px;
-    filter: drop-shadow(0 4px 4px var(--shadow));
 }
 
 
@@ -159,7 +180,6 @@ h1{
     height: 700px;
     display: flex;
     align-items: center;
-    box-shadow: 0 0 20px var(--shadow);
 }
 
 
@@ -167,7 +187,6 @@ h1{
     display: flex;
     max-width: var(--full-width);
     margin: 0 auto;
-    padding: 0 32px;
     align-items: center;
     column-gap: 186px;
 }
@@ -191,7 +210,6 @@ h1{
 .iphone-mockup-img img{
     width: 296px;
     height: 600px;
-    filter: drop-shadow(2px 2px 4px var(--shadow));
 }
 
 .screen-carousel-frame{
@@ -219,7 +237,6 @@ h1{
     color: var(--blue01);
     font-family: 'Jua', 'Noto Sans KR', sans-serif;
     line-height: 1.2;
-    filter: drop-shadow(2px 2px 4px var(--shadow));
 }
 
 .text-area .small-text{
@@ -251,7 +268,6 @@ h1{
 .search-screen img{
     width: 326px;
     height: 600px;
-    filter: drop-shadow(0 4px 8px var(--shadow));
 }
 
 .tag-carousel-container{
@@ -368,7 +384,6 @@ h1{
 .character-screen img{
     width: 326px;
     height: 600px;
-    filter: drop-shadow(0 4px 8px var(--shadow));
 }
 
 
@@ -383,7 +398,6 @@ h1{
     justify-content: center;
     align-items: center;
     row-gap: 70px;
-    box-shadow: 0 0 20px var(--shadow);
 }
 
 .highlight-area .title{
@@ -453,7 +467,6 @@ h1{
 
 .goal-screen img{
     width: 400px;
-    filter: drop-shadow(0 1px 2px var(--shadow));
 }
 
 .rewards figure{
@@ -501,7 +514,6 @@ footer{
     align-items: center;
     justify-content: space-between;
     height: 100%;
-    padding: 0 32px;
     margin: 0 auto;
 }
 
@@ -516,7 +528,6 @@ footer{
 
 .footer-logo img{
     width: 220px;
-    filter: drop-shadow(0 2px 4px var(--shadow));
 }
 
 .contact-info{
@@ -538,7 +549,6 @@ footer{
 .sns-link-btn .sns-icon{
     width: 50px;
     height: 50px;
-    filter: drop-shadow(0 0 2px rgba(0, 0, 0, .2));
 }
 
 .sns-link-btn .sns-icon.insta{
@@ -555,7 +565,6 @@ footer{
 
 .download-app-btn img{
     width: 184px;
-    filter: drop-shadow(0 0 2px rgba(0, 0, 0, .2));
 }
 
 
@@ -887,9 +896,12 @@ footer{
 }
 
 @media screen and (max-width: 479px){
+    .section-padding{
+        padding: 0 16px;
+    }
+
     .cover-inner-wrapper{
         min-height: 600px;
-        padding: 0 16px;
     }
 
     .download-link img{
