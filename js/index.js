@@ -68,49 +68,51 @@ function makeTitleSA(){
 
 function makeIntroSA(){
     const container = document.querySelector('.inner-wrapper.intro');
-    const slideContainer = document.querySelector('.screen-carousel-container');
-    const frame = document.querySelector('.screen-carousel-frame');
-    const moveLength = document.querySelector('.screen-carousel-frame').clientWidth;
     const contentsWrapper = document.querySelector('.screen-carousel-contents');
-    const count = 4;
+    const count = 4;  //슬라이드 콘텐츠 개수
     const msec = 800;
-    let nowIdx = 1;
+    let moveLength = 296;   //pc사이즈의 목업 width
+    let nowIdx = count-1;   //인덱스 0부터 시작
+    let abc;
 
 
-    if(container.getBoundingClientRect().top - window.innerHeight < 0 && nowIdx == 1){
+    if(container.getBoundingClientRect().top - window.innerHeight < 0){
+        //transition 설정
         container.style.transition = '.8s';
+        for(let i = 0; i < contentsWrapper.children.length; i++){
+            contentsWrapper.children[i].style.transition = '.8s';
+        }        
 
+        //섹션 컨텐츠 SA
         container.classList.remove('opacity-zero');
-        // setTimeout(() => {
-        //     slideContents(contentsWrapper, moveLength, count, msec, nowIdx);
-        // }, 800);
 
-        // window.addEventListener('resize', () => {
-        //     contentsWrapper.style.transform = `translateX(-${moveLength*nowIdx}px)`;
-            
-        //     setTimeout(() => {
-        //         //이미지 뒤로 펼치기
-        //     }, msec*count);
-        // })
-    }
-
-
-}
-
-
-
-function slideContents(wrapper, moveLength, count, msec, nowIdx){
-    const contentsWrapper = wrapper;
-
-    contentsWrapper.style.transition = '.5s'
-
-    contentsWrapper.style.transform = `translateX(-${moveLength*nowIdx}px)`;
-
-    if(++nowIdx < count){
+        //목업 화면 자동 슬라이드
         setTimeout(() => {
-            slideContents(wrapper, moveLength, count, msec, nowIdx);
+            abc = setInterval(() => {
+                contentsWrapper.children[nowIdx].style.transform = `translateX(-${moveLength}px)`;
+                setTimeout(() => {
+                }, msec);
+
+                if(--nowIdx === 0){
+                    clearInterval(abc);
+                }
+            }, msec);
         }, msec);
+
+        window.addEventListener('resize', () => {
+
+            
+            
+            setTimeout(() => {
+                //이미지 뒤로 펼치기
+            }, msec*count);
+        })
     }
+
+
 }
+
+
+
 
     

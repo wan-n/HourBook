@@ -195,11 +195,16 @@ h1{
     flex-direction: row-reverse;
 }
 
+.inner-wrapper.intro .img-area{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+   }
+
 .screen-carousel-container{
     position: relative;
     display: flex;
     align-items: center;
-    height: 600px;
 }
 
 .iphone-mockup-img{
@@ -212,15 +217,18 @@ h1{
     height: 600px;
 }
 
-.screen-carousel-frame{
+.screen-carousel-contents{
     position: absolute;
     width: 264px;
-    transform: translateX(16px);
+    height: 570px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     overflow: hidden;
 }
 
-.screen-carousel-contents{
-    display: flex;
+.screen-carousel-contents li{
+    position: absolute;
 }
 
 .screen-carousel-contents img{
@@ -631,20 +639,12 @@ footer{
         text-align: center;
     }
 
-    .screen-carousel-container{
-        height: 500px;
-    }
-
     .iphone-mockup-img img{
         width: 246px;
         height: 500px;
     }
 
-    .screen-carousel-frame{
-        width: 220px;
-    }
-
-    .screen-carousel-contents img{
+    .screen-carousel-contents, .screen-carousel-contents, .screen-carousel-contents img{
         width: 220px;
         height: 476px;
     }
@@ -764,10 +764,6 @@ footer{
         font-size: 16px;
     }
 
-    .screen-carousel-container{
-        height: 400px;
-    }
-
     .iphone-mockup-img img{
         width: 197px;
         height: 400px;
@@ -778,7 +774,7 @@ footer{
         transform: translateX(10px);
     }
 
-    .screen-carousel-contents img{
+    .screen-carousel-contents, .screen-carousel-contents, .screen-carousel-contents img{
         width: 175px;
         height: 378px;
     }
@@ -950,10 +946,6 @@ footer{
         font-size: 30px;
     }
 
-    .screen-carousel-container{
-        height: 350px;
-    }
-
     .iphone-mockup-img img{
         width: 172px;
         height: 350px;
@@ -963,7 +955,7 @@ footer{
         width: 154px;
     }
 
-    .screen-carousel-contents img{
+    .screen-carousel-contents, .screen-carousel-contents img{
         width: 154px;
         height: 332px;
     }
