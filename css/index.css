@@ -281,8 +281,8 @@ h1{
 .tag-carousel-container{
     position: absolute;
     top: 50%;
-    left: 34%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .tag-carousel-contents{

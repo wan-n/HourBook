@@ -2,6 +2,10 @@ makeScrollAnimation();
 
 makeTitleSA();
 makeIntroSA();
+makeSearchSA();
+makeAchievementSA();
+makeCharacterSA();
+makeGoalSA();
 
 
 
@@ -23,6 +27,10 @@ function makeScrollAnimation(){
 
                 //메서드
                 makeIntroSA();
+                makeSearchSA();
+                makeAchievementSA();
+                makeCharacterSA();
+                makeGoalSA();
 
                 lastScrollY = window.scrollY;
             }, 100);
@@ -65,51 +73,115 @@ function makeTitleSA(){
 }
 
 
+//섹션 애니메이션(opacity 변화)
+function showSectionSA(container){
+    container.style.transition = '.8s';
+    container.classList.remove('opacity-zero');
+}
+
 
 function makeIntroSA(){
     const container = document.querySelector('.inner-wrapper.intro');
-    const contentsWrapper = document.querySelector('.screen-carousel-contents');
-    const count = 4;  //슬라이드 콘텐츠 개수
-    const msec = 800;
-    let moveLength = 296;   //pc사이즈의 목업 width
-    let nowIdx = count-1;   //인덱스 0부터 시작
-    let abc;
 
+    if(container.getBoundingClientRect().top - window.innerHeight < -100 && container.classList.contains('checker')){
+        const contentsWrapper = document.querySelector('.screen-carousel-contents');
+        const count = 4;  //슬라이드 콘텐츠 개수
+        const msec = 800;
+        let moveLength = 296;   //pc사이즈의 목업 width
+        let nowIdx = count-1;   //인덱스 0부터 시작
+        let screen;
 
-    if(container.getBoundingClientRect().top - window.innerHeight < 0){
-        //transition 설정
-        container.style.transition = '.8s';
-        for(let i = 0; i < contentsWrapper.children.length; i++){
+        for(let i = 0; i < contentsWrapper.children.length; i++)
             contentsWrapper.children[i].style.transition = '.8s';
-        }        
+      
 
         //섹션 컨텐츠 SA
-        container.classList.remove('opacity-zero');
+        showSectionSA(container);
 
         //목업 화면 자동 슬라이드
         setTimeout(() => {
-            abc = setInterval(() => {
+            screen = setInterval(() => {
                 contentsWrapper.children[nowIdx].style.transform = `translateX(-${moveLength}px)`;
-                setTimeout(() => {
-                }, msec);
 
                 if(--nowIdx === 0){
-                    clearInterval(abc);
+                    clearInterval(screen);
                 }
             }, msec);
         }, msec);
 
+
         window.addEventListener('resize', () => {
 
-            
-            
             setTimeout(() => {
                 //이미지 뒤로 펼치기
             }, msec*count);
         })
+
+        container.classList.remove('checker');
     }
+}
 
 
+function makeSearchSA(){
+    const container = document.querySelector('.inner-wrapper.search');
+
+    if(container.getBoundingClientRect().top - window.innerHeight < -100 && container.classList.contains('checker')){
+        const count = 5;  //슬라이드 콘텐츠 개수
+        const msec = 800;
+        let nowIdx = 1;   //인덱스 0부터 시작
+        let screen;
+
+        //섹션 컨텐츠 SA
+        showSectionSA(container);
+
+
+        container.classList.remove('checker');
+    }
+    
+}
+
+
+function makeAchievementSA(){
+    const container = document.querySelector('.inner-wrapper.achievement');
+
+    if(container.getBoundingClientRect().top - window.innerHeight < -100 && container.classList.contains('checker')){
+        const msec = 800;
+
+        //섹션 컨텐츠 SA
+        showSectionSA(container);
+
+        container.classList.remove('checker');
+    }
+    
+}
+
+
+function makeCharacterSA(){
+    const container = document.querySelector('.inner-wrapper.character');
+    
+    if(container.getBoundingClientRect().top - window.innerHeight < -100 && container.classList.contains('checker')){
+        const msec = 800;
+
+        //섹션 컨텐츠 SA
+        showSectionSA(container);
+
+        container.classList.remove('checker');
+    }
+    
+}
+
+function makeGoalSA(){
+    const container = document.querySelector('.inner-wrapper.goal');
+
+    if(container.getBoundingClientRect().top - window.innerHeight < -100 && container.classList.contains('checker')){
+        const msec = 800;
+
+        //섹션 컨텐츠 SA
+        showSectionSA(container);
+
+        container.classList.remove('checker');
+    }   
+    
 }
 
 
