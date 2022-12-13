@@ -278,26 +278,26 @@ h1{
     height: 600px;
 }
 
-.tag-carousel-container{
+.tag-carousel-frame{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    height: 50px;
+    overflow: hidden;
 }
 
 .tag-carousel-contents{
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: rgba(93, 117, 153, .7);
-    font-size: 30px;
-    row-gap: 20px;
+    color: var(--blue01);
+    font-size: 44px;
     font-weight: bold;
 }
 
-.now-tag{
-    font-size: 44px;
-    color: var(--blue01);
+.tag-carousel-contents li{
+    line-height: 50px;
 }
 
 
@@ -325,34 +325,59 @@ h1{
 }
 
 .bar{
+    display: flex;
+    align-items: flex-end;
     width: 83px;
     border-radius: 10px 10px 0 0;
     box-shadow: 2px 0 8px var(--shadow);
+    background-color: var(--pink);
+    overflow: hidden;
 }
+
+.bar div{
+    width: 100%;
+    background-color: var(--blue01);
+}
+
 
 .bar.one{
     height: 100px;
-    background: linear-gradient(to top, var(--blue01) 60%, var(--pink) 60%);
+}
+
+.bar.one div{
+    height: 60%;
 }
 
 .bar.two{
     height: 150px;
-    background-color: var(--blue01);
+}
+
+.bar.two div{
+    height: 100%;
 }
 
 .bar.three{
     height: 300px;
-    background: linear-gradient(to top, var(--blue01) 50%, var(--pink) 50%);
+}
+
+.bar.three div{
+    height: 50%;
 }
 
 .bar.four{
     height: 250px;
-    background: linear-gradient(to top, var(--blue01) 60%, var(--pink) 60%);
+}
+
+.bar.four div{
+    height: 60%;
 }
 
 .bar.five{
     height: 400px;
-    background: linear-gradient(to top, var(--blue01) 70%, var(--pink) 70%);
+}
+
+.bar.five div{
+    height: 70%;
 }
 
 
@@ -654,12 +679,16 @@ footer{
         height: 500px;
     }
 
-    .tag-carousel-contents{
-        font-size: 26px;
+    .tag-carousel-frame{
+        height: 42px;
     }
-    
-    .now-tag{
+
+    .tag-carousel-contents{
         font-size: 36px;
+    }
+
+    .tag-carousel-contents li{
+        line-height: 42px;
     }
 
     .bar{
@@ -784,12 +813,16 @@ footer{
         height: 400px;
     }
 
-    .tag-carousel-contents{
-        font-size: 20px;
+    .tag-carousel-frame{
+        height: 36px;
     }
-    
-    .now-tag{
+
+    .tag-carousel-contents{
         font-size: 30px;
+    }
+
+    .tag-carousel-contents li{
+        line-height: 36px;
     }
 
     .bar{
@@ -965,12 +998,16 @@ footer{
         height: 350px;
     }
 
-    .tag-carousel-contents{
-        font-size: 18px;
+    .tag-carousel-frame{
+        height: 30px;
     }
-    
-    .now-tag{
+
+    .tag-carousel-contents{
         font-size: 24px;
+    }
+
+    .tag-carousel-contents li{
+        line-height: 30px;
     }
 
     .bar{

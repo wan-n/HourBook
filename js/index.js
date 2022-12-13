@@ -99,14 +99,12 @@ function makeIntroSA(){
         showSectionSA(container);
 
         //목업 화면 자동 슬라이드
-        setTimeout(() => {
-            screen = setInterval(() => {
-                contentsWrapper.children[nowIdx].style.transform = `translateX(-${moveLength}px)`;
+        screen = setInterval(() => {
+            contentsWrapper.children[nowIdx].style.transform = `translateX(-${moveLength}px)`;
 
-                if(--nowIdx === 0){
-                    clearInterval(screen);
-                }
-            }, msec);
+            if(--nowIdx === 0){
+                clearInterval(screen);
+            }
         }, msec);
 
 
@@ -126,9 +124,11 @@ function makeSearchSA(){
     const container = document.querySelector('.inner-wrapper.search');
 
     if(container.getBoundingClientRect().top - window.innerHeight < -100 && container.classList.contains('checker')){
+        const frame = document.querySelector('.tag-carousel-frame');
         const count = 5;  //슬라이드 콘텐츠 개수
         const msec = 800;
-        let nowIdx = 1;   //인덱스 0부터 시작
+        let moveLength = frame.clientHeight;   //슬라이드이동 길이
+        let nowIdx = 1;   //현재 인덱스
         let screen;
 
         //섹션 컨텐츠 SA
@@ -145,10 +145,25 @@ function makeAchievementSA(){
     const container = document.querySelector('.inner-wrapper.achievement');
 
     if(container.getBoundingClientRect().top - window.innerHeight < -100 && container.classList.contains('checker')){
-        const msec = 800;
+        const barGraph = document.querySelector('.bar-graph');
+        let barHeight = [];
 
         //섹션 컨텐츠 SA
         showSectionSA(container);
+
+        for(let i = 0; i < barGraph.children.length; i++){
+            barHeight[i] = barGraph.children[i].clientHeight;  //각 막대의 높이 저장
+            barGraph.children[i].style.height = '0'
+        }
+
+        setTimeout(() => {
+            for(let i = 1; i <= barGraph.children.length; i++){
+                barGraph.children[i-1].style.transition = '.8s'
+                setTimeout(() => {
+                    barGraph.children[i-1].style.height = `${barHeight[i-1]}px`
+                }, 200 * i);
+            }
+        }, 100);
 
         container.classList.remove('checker');
     }
