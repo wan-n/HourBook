@@ -159,10 +159,10 @@ function makeAchievementSA(){
         }
 
         setTimeout(() => {
-            for(let i = 1; i <= barGraph.children.length; i++){
-                barGraph.children[i-1].style.transition = '.8s'
+            for(let i = 0; i < barGraph.children.length; i++){
+                barGraph.children[i].style.transition = '.8s'
                 setTimeout(() => {
-                    barGraph.children[i-1].style.height = `${barHeight[i-1]}px`
+                    barGraph.children[i].style.height = `${barHeight[i]}px`
                 }, 100 * i);
             }
         }, 100);
@@ -178,18 +178,16 @@ function makeCharacterSA(){
     
     if(container.getBoundingClientRect().top - window.innerHeight < -100 && container.classList.contains('checker')){
         const characters = document.querySelector('.characters');
-        let nowIdx = 0;
 
         //섹션 컨텐츠 SA
         showSectionSA(container);
 
-        let show = setInterval(() => {
-            characters.children[nowIdx].style.transition = '.2s'
-            characters.children[nowIdx].classList.remove('opacity-zero');
-
-            if(++nowIdx == characters.children.length)
-                clearInterval(show);
-        }, 400);
+        for(let i = 0; i < characters.children.length; i++){
+            characters.children[i].style.transition = '.2s'
+            setTimeout(() => {
+                characters.children[i].classList.remove('opacity-zero');
+            }, 500 * (i + 1));
+        }
 
         container.classList.remove('checker');
     }
@@ -233,17 +231,24 @@ function makeHighlightSA(){
 
 function makeGoalSA(){
     const container = document.querySelector('.inner-wrapper.goal');
+    const imgArea = document.querySelector('.inner-wrapper.goal .img-area');
 
-    if(container.getBoundingClientRect().top - window.innerHeight < -100 && container.classList.contains('checker')){
-
-
-
-
-
+    if(container.getBoundingClientRect().top - window.innerHeight < -100 && imgArea.classList.contains('checker')){
+        const rewards = document.querySelector('.rewards');
+        
         //섹션 컨텐츠 SA
         showSectionSA(container);
 
-        container.classList.remove('checker');
+        if(imgArea.getBoundingClientRect().top - window.innerHeight < -100){
+            for(let i = 0; i < rewards.children.length; i++){
+                rewards.children[i].style.transition = '.4s'
+                setTimeout(() => {
+                    rewards.children[i].classList.remove('opacity-zero');
+                }, 400 * (i+1));
+            }
+
+            imgArea.classList.remove('checker');
+        }
     }   
     
 }
