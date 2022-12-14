@@ -5,6 +5,7 @@ makeIntroSA();
 makeSearchSA();
 makeAchievementSA();
 makeCharacterSA();
+makeHighlightSA();
 makeGoalSA();
 
 
@@ -30,6 +31,7 @@ function makeScrollAnimation(){
                 makeSearchSA();
                 makeAchievementSA();
                 makeCharacterSA();
+                makeHighlightSA();
                 makeGoalSA();
 
                 lastScrollY = window.scrollY;
@@ -161,7 +163,7 @@ function makeAchievementSA(){
                 barGraph.children[i-1].style.transition = '.8s'
                 setTimeout(() => {
                     barGraph.children[i-1].style.height = `${barHeight[i-1]}px`
-                }, 200 * i);
+                }, 100 * i);
             }
         }, 100);
 
@@ -175,21 +177,68 @@ function makeCharacterSA(){
     const container = document.querySelector('.inner-wrapper.character');
     
     if(container.getBoundingClientRect().top - window.innerHeight < -100 && container.classList.contains('checker')){
-        const msec = 800;
+        const characters = document.querySelector('.characters');
+        let nowIdx = 0;
 
         //섹션 컨텐츠 SA
         showSectionSA(container);
+
+        let show = setInterval(() => {
+            characters.children[nowIdx].style.transition = '.2s'
+            characters.children[nowIdx].classList.remove('opacity-zero');
+
+            if(++nowIdx == characters.children.length)
+                clearInterval(show);
+        }, 400);
 
         container.classList.remove('checker');
     }
     
 }
 
+function repeatCirclesMotion(circles, msec){
+    for(let i = 0; i < circles.length; i++){
+        circles[i].style.transition = '.3s'
+        setTimeout(() => {
+            if(i > 0){
+                circles[i - 1].classList.add('opacity-zero'); 
+            }else if(i === 0){
+                circles[circles.length - 1].classList.add('opacity-zero'); 
+            }
+            
+            circles[i].classList.remove('opacity-zero');
+        }, msec * i);
+    } 
+}
+
+function makeHighlightSA(){
+    const container = document.querySelector('.highlight-area');
+
+    if(container.getBoundingClientRect().top - window.innerHeight < 0 && container.classList.contains('checker')){
+        const circles = document.getElementsByClassName('circles');
+        const msec = 300;
+
+        repeatCirclesMotion(circles, msec);
+
+        setInterval(() => {
+            repeatCirclesMotion(circles, msec);
+        }, msec * circles.length);
+        
+
+        container.classList.remove('checker');
+    }  
+}
+
+
+
 function makeGoalSA(){
     const container = document.querySelector('.inner-wrapper.goal');
 
     if(container.getBoundingClientRect().top - window.innerHeight < -100 && container.classList.contains('checker')){
-        const msec = 800;
+
+
+
+
 
         //섹션 컨텐츠 SA
         showSectionSA(container);
