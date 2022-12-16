@@ -163,6 +163,35 @@ h1{
 
 
 
+.inner-wrapper{
+    display: flex;
+    max-width: var(--full-width);
+    margin: 0 auto;
+    align-items: center;
+    column-gap: 186px;
+}
+
+.text-area, .img-area{
+    max-width: 515px;
+}
+
+.title{
+    font-size: 60px;
+    color: var(--blue01);
+    font-family: 'Jua', 'Noto Sans KR', sans-serif;
+    line-height: 1.2;
+}
+
+.text-area .small-text{
+    font-size: 20px;
+    color: var(--black);
+    font-family: 'Gowun Dodum', 'Noto Sans KR', sans-serif;
+    line-height: 1.5;
+    margin-top: 10px;
+}
+
+
+
 
 
 #intro{
@@ -182,15 +211,6 @@ h1{
     align-items: center;
 }
 
-
-.inner-wrapper{
-    display: flex;
-    max-width: var(--full-width);
-    margin: 0 auto;
-    align-items: center;
-    column-gap: 186px;
-}
-
 .inner-wrapper.intro{
     flex-direction: row-reverse;
 }
@@ -199,7 +219,12 @@ h1{
     display: flex;
     justify-content: flex-end;
     align-items: center;
-   }
+    /* width: 515px; */
+}
+/* 
+.inner-wrapper.intro .text-area{
+    width: 515px;
+} */
 
 .screen-carousel-container{
     position: relative;
@@ -227,33 +252,25 @@ h1{
     overflow: hidden;
 }
 
-.screen-carousel-contents li{
+.screen-carousel-contents li, .screen-contents li{
     position: absolute;
 }
 
-.screen-carousel-contents img{
+.screen-carousel-contents img, .screen-contents img{
     width: 264px;
     height: 570px;
 }
 
-.text-area, .img-area{
-    max-width: 515px;
+.screen-contents{
+    position: absolute;
+    width: 264px;
+    height: 570px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.title{
-    font-size: 60px;
-    color: var(--blue01);
-    font-family: 'Jua', 'Noto Sans KR', sans-serif;
-    line-height: 1.2;
-}
 
-.text-area .small-text{
-    font-size: 20px;
-    color: var(--black);
-    font-family: 'Gowun Dodum', 'Noto Sans KR', sans-serif;
-    line-height: 1.5;
-    margin-top: 10px;
-}
 
 
 

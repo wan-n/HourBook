@@ -109,12 +109,14 @@ function makeIntroSA(){
             }
         }, msec);
 
+        setTimeout(() => {
+            //이미지 뒤로 펼치기
+        }, msec*count);
+
 
         window.addEventListener('resize', () => {
 
-            setTimeout(() => {
-                //이미지 뒤로 펼치기
-            }, msec*count);
+            
         })
 
         container.classList.remove('checker');
