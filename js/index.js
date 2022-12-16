@@ -285,12 +285,10 @@ function makeGoalSA(){
 
         if(imgArea.getBoundingClientRect().top - window.innerHeight < -100){
             for(let i = 0; i < rewards.children.length; i++){
-                rewards.children[i].style.transition = '.4s'
                 setTimeout(() => {
                     rewards.children[i].classList.remove('opacity-zero');
                 }, 400 * (i+1));
             }
-
             imgArea.classList.remove('checker');
         }
     }   

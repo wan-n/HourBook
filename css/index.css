@@ -531,18 +531,18 @@ h1{
 
 .reward-one{
     top: -10px;
-    right: -200px;
+    right: -160px;
     transform: scaleX(-1);
 }
 
 .reward-two{
     top: 200px;
-    left: -200px;
+    left: -160px;
 }
 
 .reward-three{
     bottom: 10px;
-    right: -200px;
+    right: -160px;
     transform: scaleX(-1);
 }
 
@@ -655,6 +655,18 @@ footer{
     .bar{
         width: 70px;
     }
+
+    .reward-one{
+        right: -200px;
+    }
+    
+    .reward-two{
+        left: -200px;
+    }
+    
+    .reward-three{
+        right: -200px;
+    }
 }
 
 @media screen and (max-width: 1023px) {
@@ -745,16 +757,16 @@ footer{
 
     .reward-one{
         top: 0;
-        right: -160px;
+        right: 0;
     }
     
     .reward-two{
         top: 190px;
-        left: -160px;
+        left: 0;
     }
     
     .reward-three{
-        right: -160px;
+        right: 0;
     }
 }
 
