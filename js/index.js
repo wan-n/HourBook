@@ -132,7 +132,18 @@ function makeIntroSA(){
                     contentsContainer.style.transform = `translateX(60px)`;
                     backImg.children[i].style.transform = `translateX(-${130 - 40 * i}px)`; 
                 }
+
+                backImg.children[i].addEventListener('click', () => {
+                    for(let j = 1; j < contentsWrapper.children.length; j++){
+                        contentsWrapper.children[j].style.transition = 'none';
+                        contentsWrapper.children[j].style.transform = `translateX(-${moveLength}px)`;
+                    }
+                        
+                    contentsWrapper.children[i + 1].style.transform = `translateX(0)`;
+                });
             }
+
+
             timeChecker = true;
         }, msec*(count-1));
 
