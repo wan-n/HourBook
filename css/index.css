@@ -38,6 +38,11 @@
     filter: drop-shadow(2px 2px 4px var(--shadow));
 }
 
+.shadow.type-05{
+    filter: drop-shadow(-1px 1px 4px var(--shadow));
+}
+
+
 .section-padding{
     padding: 0 32px;
 }
@@ -183,7 +188,7 @@ h1{
 }
 
 .title-logo img{
-    height: 170px;
+    height: 169px;
 }
 
 .scroll-arrow{

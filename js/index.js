@@ -86,12 +86,14 @@ function makeIntroSA(){
     const container = document.querySelector('.inner-wrapper.intro');
 
     if(container.getBoundingClientRect().top - window.innerHeight < -100 && container.classList.contains('checker')){
+        const backImg = document.querySelector('.screen-contents'); 
+        const contentsContainer = document.querySelector('.screen-carousel-container');
         const contentsWrapper = document.querySelector('.screen-carousel-contents');
         const count = 4;  //슬라이드 콘텐츠 개수
         const msec = 800;
         let moveLength = 296;   //pc사이즈의 목업 width
         let nowIdx = count-1;   //인덱스 0부터 시작
-        let screen;
+        let timeChecker = false;
 
         for(let i = 0; i < contentsWrapper.children.length; i++)
             contentsWrapper.children[i].style.transition = '.8s';
@@ -101,7 +103,7 @@ function makeIntroSA(){
         showSectionSA(container);
 
         //목업 화면 자동 슬라이드
-        screen = setInterval(() => {
+        let screen = setInterval(() => {
             contentsWrapper.children[nowIdx].style.transform = `translateX(-${moveLength}px)`;
 
             if(--nowIdx === 0){
@@ -109,14 +111,54 @@ function makeIntroSA(){
             }
         }, msec);
 
+
+        //스크린 이미지 뒤로 펼치기
         setTimeout(() => {
-            //이미지 뒤로 펼치기
-        }, msec*count);
+            for(let i = 0; i < backImg.children.length; i++){
+                contentsContainer.style.transition = '.8s';
+                backImg.children[i].style.transition = '.8s';
+
+                if(window.innerWidth >= 1280){
+                    backImg.children[i].style.transform = `translateX(-${200 - 60 * i}px)`; 
+                }else if(window.innerWidth < 1280 && window.innerWidth >= 1024){
+                    backImg.children[i].style.transform = `translateX(-${130 - 40 * i}px)`;
+                }else if(window.innerWidth < 1024 && window.innerWidth >= 768){
+                    contentsContainer.style.transform = `translateX(150px)`; 
+                    backImg.children[i].style.transform = `translateX(-${300 - 100 * i}px)`;
+                }else if(window.innerWidth < 768 && window.innerWidth >= 480){
+                    contentsContainer.style.transform = `translateX(90px)`;
+                    backImg.children[i].style.transform = `translateX(-${190 - 60 * i}px)`; 
+                }else if(window.innerWidth < 480){
+                    contentsContainer.style.transform = `translateX(60px)`;
+                    backImg.children[i].style.transform = `translateX(-${130 - 40 * i}px)`; 
+                }
+            }
+            timeChecker = true;
+        }, msec*(count-1));
 
 
+        //반응형
         window.addEventListener('resize', () => {
-
-            
+            if(timeChecker){
+                for(let i = 0; i < backImg.children.length; i++){
+                    if(window.innerWidth >= 1280){
+                        contentsContainer.style.transform = `translateX(0)`; 
+                        backImg.children[i].style.transform = `translateX(-${200 - 60 * i}px)`;
+                    }else if(window.innerWidth < 1280 && window.innerWidth >= 1024){
+                        contentsContainer.style.transform = `translateX(0)`; 
+                        backImg.children[i].style.transform = `translateX(-${130 - 40 * i}px)`;
+                    }else if(window.innerWidth < 1024 && window.innerWidth >= 768){
+                        contentsContainer.style.transform = `translateX(150px)`;
+                        backImg.children[i].style.transform = `translateX(-${300 - 100 * i}px)`;
+                    }else if(window.innerWidth < 768 && window.innerWidth >= 480){
+                        contentsContainer.style.transform = `translateX(90px)`;
+                        backImg.children[i].style.transform = `translateX(-${190 - 60 * i}px)`;
+                    }else if(window.innerWidth < 480){
+                        contentsContainer.style.transform = `translateX(60px)`;
+                        backImg.children[i].style.transform = `translateX(-${130 - 40 * i}px)`;
+                    }
+                }
+            }
         })
 
         container.classList.remove('checker');
