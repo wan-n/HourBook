@@ -42,6 +42,54 @@
     padding: 0 32px;
 }
 
+.inner-wrapper{
+    display: flex;
+    max-width: var(--full-width);
+    margin: 0 auto;
+    align-items: center;
+    column-gap: 186px;
+}
+
+.text-area, .img-area{
+    width: 515px;
+}
+
+.img-area.type-01{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.img-area.type-02{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.text-area.type-01{
+    text-align: left;
+}
+
+.text-area.type-02{
+    text-align: right;
+}
+
+.title{
+    font-size: 60px;
+    color: var(--blue01);
+    font-family: 'Jua', 'Noto Sans KR', sans-serif;
+    line-height: 1.2;
+}
+
+.text-area .small-text{
+    font-size: 20px;
+    color: var(--black);
+    font-family: 'Gowun Dodum', 'Noto Sans KR', sans-serif;
+    line-height: 1.5;
+    margin-top: 10px;
+}
+
+
 
 
 
@@ -163,37 +211,6 @@ h1{
 
 
 
-.inner-wrapper{
-    display: flex;
-    max-width: var(--full-width);
-    margin: 0 auto;
-    align-items: center;
-    column-gap: 186px;
-}
-
-.text-area, .img-area{
-    max-width: 515px;
-}
-
-.title{
-    font-size: 60px;
-    color: var(--blue01);
-    font-family: 'Jua', 'Noto Sans KR', sans-serif;
-    line-height: 1.2;
-}
-
-.text-area .small-text{
-    font-size: 20px;
-    color: var(--black);
-    font-family: 'Gowun Dodum', 'Noto Sans KR', sans-serif;
-    line-height: 1.5;
-    margin-top: 10px;
-}
-
-
-
-
-
 #intro{
     background-color: var(--blue01);
     width: 100%;
@@ -214,17 +231,6 @@ h1{
 .inner-wrapper.intro{
     flex-direction: row-reverse;
 }
-
-.inner-wrapper.intro .img-area{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    /* width: 515px; */
-}
-/* 
-.inner-wrapper.intro .text-area{
-    width: 515px;
-} */
 
 .screen-carousel-container{
     position: relative;
@@ -282,12 +288,9 @@ h1{
     align-items: center;
 }
 
-.inner-wrapper.search .text-area{
-    text-align: right;
-}
-
-.inner-wrapper.search .img-area{
+.screen-wrapper{
     position: relative;
+    width: 326px;
 }
 
 .search-screen img{
@@ -408,15 +411,6 @@ h1{
     min-height: 800px;
 }
 
-.inner-wrapper.character .text-area{
-    text-align: right;
-}
-
-.inner-wrapper.character .img-area{
-    position: relative;
-}
-
-
 .characters{
     position: absolute;
     display: flex;
@@ -486,7 +480,7 @@ h1{
 }
 
 .inner-wrapper.goal .text-area{
-    max-width: 100%;
+    width: 100%;
 }
 
 .inner-wrapper.goal .title, .highlight-area .title{
@@ -650,7 +644,7 @@ footer{
     }
 
     .text-area, .img-area{
-        max-width: 430px;
+        width: 430px;
     }
 
     .bar{
@@ -674,10 +668,14 @@ footer{
     }
 
     .text-area, .img-area{
-        max-width: 704px;
+        width: 704px;
     }
 
-    .text-area, .inner-wrapper.search .text-area, .inner-wrapper.character .text-area{
+    .img-area.type-01, .img-area.type-02{
+        justify-content: center;
+    }
+
+    .text-area.type-01, .text-area.type-02{
         text-align: center;
     }
 
@@ -686,9 +684,13 @@ footer{
         height: 500px;
     }
 
-    .screen-carousel-contents, .screen-carousel-contents, .screen-carousel-contents img{
+    .screen-carousel-contents, .screen-carousel-contents, .screen-carousel-contents img, .screen-contents, .screen-contents img{
         width: 220px;
         height: 476px;
+    }
+
+    .screen-wrapper{
+        width: 272px;
     }
 
     .search-screen img, .character-screen img{
@@ -799,7 +801,7 @@ footer{
     }
 
     .text-area, .img-area{
-        max-width: 416px;
+        width: 416px;
     }
 
     .title{
@@ -820,9 +822,13 @@ footer{
         transform: translateX(10px);
     }
 
-    .screen-carousel-contents, .screen-carousel-contents, .screen-carousel-contents img{
+    .screen-carousel-contents, .screen-carousel-contents, .screen-carousel-contents img, .screen-contents, .screen-contents img{
         width: 175px;
         height: 378px;
+    }
+
+    .screen-wrapper{
+        width: 218px;
     }
 
     .search-screen img, .character-screen img{
@@ -989,7 +995,7 @@ footer{
     }
 
     .text-area, .img-area{
-        max-width: 288px;
+        width: 288px;
     }
 
     .title{
@@ -1005,9 +1011,13 @@ footer{
         width: 154px;
     }
 
-    .screen-carousel-contents, .screen-carousel-contents img{
+    .screen-carousel-contents, .screen-carousel-contents, .screen-carousel-contents img, .screen-contents, .screen-contents img{
         width: 154px;
         height: 332px;
+    }
+
+    .screen-wrapper{
+        width: 190px;
     }
 
     .search-screen img, .character-screen img{
