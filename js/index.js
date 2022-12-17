@@ -177,24 +177,71 @@ function makeIntroSA(){
 }
 
 
+//슬라이드 이동 + 트랜지션
+function moveSlide(transition, wrapper, moveLength, nowIdx, frame){
+    moveLength = frame.clientHeight;
+    wrapper.style.transform = `translateY(-${moveLength * nowIdx}px)`;
+
+    if(transition){
+        wrapper.style.transition = '.5s';
+    }else{
+        wrapper.style.transition = 'none';
+    }
+}
+
 function makeSearchSA(){
     const container = document.querySelector('.inner-wrapper.search');
 
     if(container.getBoundingClientRect().top - window.innerHeight < -100 && container.classList.contains('checker')){
         const frame = document.querySelector('.tag-carousel-frame');
-        const count = 5;  //슬라이드 콘텐츠 개수
-        const msec = 800;
-        let moveLength = frame.clientHeight;   //슬라이드이동 길이
-        let nowIdx = 1;   //현재 인덱스
-        let screen;
+        const wrapper = document.querySelector('.tag-carousel-contents');
+        let moveLength = frame.clientHeight;   //슬라이드 이동 길이
+        let nowIdx = 0;   //현재 인덱스
+        let slideNum = wrapper.childElementCount;
 
         //섹션 컨텐츠 SA
         showSectionSA(container);
 
 
+        //클론 노드
+        const cloneFirst = wrapper.firstElementChild.cloneNode(true);
+        wrapper.appendChild(cloneFirst);
+        moveSlide(false, wrapper, moveLength, nowIdx, frame);
+        slideNum = wrapper.childElementCount;  //클론 포함 노드 개수
+
+        setInterval(() => {
+            nowIdx++;
+            moveSlide(true, wrapper, moveLength, nowIdx, frame);
+
+            if(nowIdx === slideNum - 1){
+                setTimeout(() => {
+                    nowIdx = 0;
+                    moveSlide(false, wrapper, moveLength, nowIdx, frame);
+                }, 500);
+            }
+        }, 1000);
+
+
+        //반응형
+        window.addEventListener('resize', () => {
+            if(window.innerWidth >= 1024){
+                moveLength = frame.clientHeight;
+                moveSlide(true, wrapper, moveLength, nowIdx, frame);
+            }else if(window.innerWidth < 1024 && window.innerWidth >= 768){
+                moveLength = frame.clientHeight;
+                moveSlide(true, wrapper, moveLength, nowIdx, frame);
+            }else if(window.innerWidth < 768 && window.innerWidth >= 480){
+                moveLength = frame.clientHeight;
+                moveSlide(true, wrapper, moveLength, nowIdx, frame);
+            }else if(window.innerWidth < 480){
+                moveLength = frame.clientHeight;
+                moveSlide(true, wrapper, moveLength, nowIdx, frame);
+            }
+        })
+
+
         container.classList.remove('checker');
     }
-    
 }
 
 
